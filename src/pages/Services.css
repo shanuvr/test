@@ -1,0 +1,210 @@
+/* Services Page Styles - Cyberpunk / Sci-fi Aesthetics */
+
+.services-page {
+  min-height: 100vh;
+  background-color: #050505;
+  color: #ffffff;
+  padding: 8rem 4rem 4rem 4rem;
+  box-sizing: border-box;
+  font-family: var(--sans);
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Background grid effect */
+.services-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(255, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header Section */
+.services-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.services-tagline {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #ff0000;
+  letter-spacing: 0.3em;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  display: inline-block;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  animation: pulseTag 2s infinite alternate;
+}
+
+.services-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.services-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 600px;
+  margin: 1.5rem auto 0 auto;
+  line-height: 1.6;
+}
+
+/* Cards Grid Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-page {
+    padding: 6rem 2rem 2rem 2rem;
+  }
+}
+
+/* Card Design (Glassmorphic + Neon Glow) */
+.service-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 3rem;
+  box-sizing: border-box;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.15) 0%, transparent 40%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* Card Hover States */
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 0, 0, 0.3);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* Card Icon Box */
+.service-icon-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.4s ease;
+}
+
+.service-card:hover .service-icon-box {
+  border-color: rgba(255, 0, 0, 0.5);
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+/* Card Typography */
+.service-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem 0;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-name {
+  color: #ff0000;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.service-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 2rem 0;
+}
+
+/* Card Link/Explore Button */
+.service-link {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease, gap 0.3s ease;
+}
+
+.service-card:hover .service-link {
+  color: #fff;
+  gap: 0.8rem;
+}
+
+.service-link-arrow {
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-link-arrow {
+  transform: translateX(4px);
+}
+
+/* Animations */
+@keyframes pulseTag {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 25px rgba(255, 0, 0, 0.4);
+  }
+}
