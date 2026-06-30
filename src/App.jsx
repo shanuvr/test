@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion'
 import Preloader from './components/Preloader'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
-import Services from './pages/Services'
+import Services from './pages/Services' 
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
